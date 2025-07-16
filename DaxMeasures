@@ -1,0 +1,150 @@
+% Of All Orders = 
+Divide(
+    [Total Orders],
+    [All Orders])
+10 day Rolling Revenue = 
+CALCULATE(
+    [Total Revenue],
+    DATESINPERIOD(
+        'Calendar Lookup'[Date],
+        MAX(
+            'Calendar Lookup'[Date]
+        ),
+        -10,DAY
+    )
+)
+Adjusted Price = [Average Retail price] * (1+'Price Adjustment (%)'[Price Adjustment (%) Value])
+Adjusted Profit = 
+[Adjusted Revenue]-[Adjusted Price]
+Adjusted Revenue = 
+sumx(
+    'Sales Data',
+    'Sales Data'[OrderQuantity] *
+    [Adjusted Price]
+)
+All Orders = 
+CALCULATE(
+    [Total Orders],
+    ALL('Sales Data')
+)
+Average Retail price = 
+AVERAGE(
+    'Product Lookup'[ProductPrice])
+Bulk Orders = 
+CALCULATE(
+    [Total Orders],
+    'Sales Data'[OrderQuantity]>1)
+High Ticket Orders = 
+CALCULATE(
+    [Total Orders],
+    FILTER(
+        'Product Lookup',
+        'Product Lookup'[ProductPrice]>[Overall Average Price]
+    )
+        
+)
+
+Order Target = 
+[Previous Month Orders]*1.1
+Order Target Gap = [Total Orders]-[Order Target]
+Overall Average Price = 
+CALCULATE(
+    [Average Retail price],
+    ALL(
+        'Product Lookup'
+    )
+)
+Previous Month Orders = 
+CALCULATE(
+    [Total Orders],
+    DATEADD('Calendar Lookup'[Date],
+    -1,MONTH)
+)
+Previous Month Profit = 
+CALCULATE(
+    [Total Profit],
+    DATEADD('Calendar Lookup'[Date],
+    -1,MONTH)
+)
+Previous Month Returns = 
+CALCULATE(
+    [Total Returns],
+    DATEADD('Calendar Lookup'[Date],
+    -1,MONTH)
+)
+Previous Month Revenue = 
+CALCULATE(
+    [Total Revenue],
+    DATEADD('Calendar Lookup'[Date],
+    -1,MONTH)
+)
+Profit Target = 
+[Previous Month Profit]*1.1
+Profit Target Gap = [Total Profit]-[Profit Target]
+Quantity Returned = 
+Sum(
+    'Returns Data'[ReturnQuantity]
+)
+Quantity Sold = 
+sum(
+    'Sales Data'[OrderQuantity]
+)
+Return Rate = 
+DIVIDE(
+    [Quantity Returned],
+    [Quantity Sold],
+    "No Sales"
+)
+Revenue Target = 
+[Previous Month Revenue]*1.1
+Revenue Target Gap = [Total Revenue]-[Revenue Target]
+Total Cost = 
+SUMX(
+    'Sales Data',
+    'Sales Data'[OrderQuantity]
+    *
+    RELATED('Product Lookup'[ProductCost])
+)
+Total Customer = 
+DISTINCTCOUNT('Sales Data'[CustomerKey])
+Total Orders = 
+DISTINCTCOUNT('Sales Data'[OrderNumber])
+Total Orders (Customer Detail) = 
+IF(
+    HASONEVALUE(
+        'Customer Lookup'[CustomerKey]
+    ),
+    [Total Orders],
+    "_"
+)
+Total Profit = 
+[Total Revenue]-[Total Cost]
+Total Returns = 
+COUNT(
+    'Returns Data'[ReturnQuantity])
+Total Revenue = 
+sumx(
+    'Sales Data',
+    'Sales Data'[OrderQuantity] *
+    RELATED(
+        'Product Lookup'[ProductPrice]
+        )
+)
+Total Revenue (Customer Detail) = 
+IF(
+    HASONEVALUE(
+        'Customer Lookup'[CustomerKey]
+    ),
+    [Total Revenue],
+    "_"
+)
+YTD Revenue = 
+CALCULATE(
+    [Total Revenue],
+    DATESYTD('Calendar Lookup'[Date])
+)
+
+
+
+
+
