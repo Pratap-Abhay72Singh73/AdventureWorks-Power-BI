@@ -25,9 +25,7 @@ This project analyzes the sales data of AdventureWorks, a fictional bike manufac
 - Business Analysis & Visualization
 - Strategic Insight Generation
 
-## 🖼 Dashboard Preview
-![Dashboard Screenshot](<"C:\Users\abhay\OneDrive\Pictures\Screenshots\Screenshot 2025-07-16 231509.png">
-)
+
 
 ## 🚀 Business Value
 This dashboard helps business stakeholders quickly identify revenue-driving regions and high-performing products, enabling data-driven strategic decisions in marketing, inventory planning, and sales operations.
