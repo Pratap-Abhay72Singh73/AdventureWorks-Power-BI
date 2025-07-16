@@ -26,7 +26,7 @@ This project analyzes the sales data of AdventureWorks, a fictional bike manufac
 - Strategic Insight Generation
 
 ## 🖼 Dashboard Preview
-![Dashboard Screenshot](<img width="1517" height="793" alt="image" src="https://github.com/user-attachments/assets/d67b6d33-51cb-4b7c-8fac-f2231f7287b5" />
+![Dashboard Screenshot](<"C:\Users\abhay\OneDrive\Pictures\Screenshots\Screenshot 2025-07-16 231509.png">
 )
 
 ## 🚀 Business Value
