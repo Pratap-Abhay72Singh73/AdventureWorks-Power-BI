@@ -26,7 +26,8 @@ This project analyzes the sales data of AdventureWorks, a fictional bike manufac
 - Strategic Insight Generation
 
 ## 🖼 Dashboard Preview
-![Dashboard Screenshot](Screenshots/dashboard_overview.png)
+![Dashboard Screenshot](<img width="1517" height="793" alt="image" src="https://github.com/user-attachments/assets/d67b6d33-51cb-4b7c-8fac-f2231f7287b5" />
+)
 
 ## 🚀 Business Value
 This dashboard helps business stakeholders quickly identify revenue-driving regions and high-performing products, enabling data-driven strategic decisions in marketing, inventory planning, and sales operations.
